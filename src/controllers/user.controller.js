@@ -33,7 +33,7 @@ const registerUser = asyncHandler (async (req, res) => {
     // check for user creation
     // return response, 
 
-    const {username, email, fullName, password} = req.body
+    const {username, email, fullName, password} = JSON.parse(req.body.alldata)
  
 
     if(
@@ -49,7 +49,8 @@ const registerUser = asyncHandler (async (req, res) => {
         throw new ApiError(409, "User with email or username is already exist!")
     }
 
-    //console.log(req.files);
+    console.log(req.body);
+    console.log(req.files);
     const avatarLocalPath = req.files?.avatar[0]?.path;
     // const coverLocalPath = req.files?.coverImage[0]?.path;
 
@@ -421,6 +422,13 @@ const getWatchHistory = asyncHandler(async(req, res) => {
         )
 })    
 
+const uploadtest = asyncHandler(async(req, res) => {
+    const {name,phone,image} = JSON.parse(req.body.alldata)
+    console.log(req.file)
+    console.log(name,phone,image)
+
+})
+
 export {
     registerUser,
     loginUser,
@@ -433,4 +441,5 @@ export {
     updateUserCoverImage,
     getUserChannelProfile,
     getWatchHistory,
+    uploadtest
 }
