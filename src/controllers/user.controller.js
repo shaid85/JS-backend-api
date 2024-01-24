@@ -429,6 +429,10 @@ const uploadtest = asyncHandler(async(req, res) => {
 
 })
 
+const routetest = (req, res) => {
+    res.send('Route works from controller fn')
+}
+
 export {
     registerUser,
     loginUser,
@@ -441,5 +445,6 @@ export {
     updateUserCoverImage,
     getUserChannelProfile,
     getWatchHistory,
-    uploadtest
+    uploadtest,
+    routetest
 }

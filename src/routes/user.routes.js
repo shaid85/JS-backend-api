@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import { registerUser,loginUser,logoutUser,refreshAccessToken,updatePassword,updateUserAvatar,updateUserCoverImage,updateUserDetails,getCurrentUser, getUserChannelProfile, getWatchHistory, uploadtest } from '../controllers/user.controller.js';
+import { registerUser,loginUser,logoutUser,refreshAccessToken,updatePassword,updateUserAvatar,updateUserCoverImage,updateUserDetails,getCurrentUser, getUserChannelProfile, getWatchHistory, uploadtest, routetest} from '../controllers/user.controller.js';
 import {upload} from '../middlewares/multer.middleware.js';
 import { verifyJWT } from '../middlewares/auth.middleware.js';
 
@@ -34,7 +34,9 @@ router.route("/history").get(verifyJWT, getWatchHistory)
 
 router.route("/refresh-token").post(refreshAccessToken)
 
+//test purpose
 router.route("/upload").post(upload.single("image"), uploadtest)
+router.route("/routetest").get(routetest)
 
 
 export default router
