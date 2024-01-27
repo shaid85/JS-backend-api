@@ -21,8 +21,10 @@ import userRouter from './routes/user.routes.js';
 // routes declaration
 app.use("/api/v1/users", userRouter)
 
-app.use('/dist', express.static(path.join(__dirname, './dist')));
 app.use(express.static('dist'))
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 // app.get('/', (req, res) => {
 //     res.send('Server Start')
 //   })
