@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
@@ -20,6 +21,7 @@ import userRouter from './routes/user.routes.js';
 // routes declaration
 app.use("/api/v1/users", userRouter)
 
+app.use('/dist', express.static(path.join(__dirname, './dist')));
 app.use(express.static('dist'))
 // app.get('/', (req, res) => {
 //     res.send('Server Start')
