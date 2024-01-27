@@ -2,6 +2,9 @@ import express from 'express';
 import path from 'path';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import fileDirName from './utils/file-dir-name.js';
+
+const { __dirname } = fileDirName(import.meta);
 
 const app = express()
 
